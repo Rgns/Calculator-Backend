@@ -1,6 +1,6 @@
 package com.project.rg.Calculator.common;
 
-public interface ApiPath {
+public interface ApiPath  {
 
     String API = "api",
             V = "v1",
