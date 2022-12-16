@@ -12,8 +12,14 @@ public interface ApiPath  {
     String SERVICE_PATH = SLASH + SERVICE;
 
 
+    // login controller
     String REGISTER_USER =  SLASH + "registerUser";
     String LOGIN = SLASH + "login";
     String INTERNAL = "internal";
+
+
+    // calculator controller
+
+    String CALCULATE = SLASH + "calculate";
 
 }

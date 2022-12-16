@@ -1,10 +1,10 @@
 package com.project.rg.Calculator.controller;
 
-import com.project.rg.Calculator.exceptions.StudentNotFoundException;
+import com.project.rg.Calculator.exceptions.BadRequestException;
 import com.project.rg.Calculator.model.LoginResponse;
 import com.project.rg.Calculator.model.User;
 import com.project.rg.Calculator.services.LoginService;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RequestMapping(API_PATH + SERVICE_PATH)// /api/v1/frontend-api
 @RestController
-@RequiredArgsConstructor
 public class LoginController extends AbstractController {
 
     @Autowired
@@ -40,9 +39,12 @@ public class LoginController extends AbstractController {
         int x = 2;
 
         if(x==2)
-        throw new StudentNotFoundException();
+            return "Hello world";
 
-        return "Hello world";
+
+        throw new BadRequestException("throwing error");
+
+
     }
 
 

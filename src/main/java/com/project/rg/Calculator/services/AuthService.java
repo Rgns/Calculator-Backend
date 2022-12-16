@@ -17,8 +17,12 @@ public class AuthService {
     UserRepository userRepository;
 
     public boolean isAuthenticated(String auth) {
+        if(auth == null){
+            return false;
+        }
         String[] authParts = auth.split("\\s+");
         String authInfo = authParts[1];
+
         byte[] bytes = Base64Utils.decodeFromString(authInfo);
         String decodeString = new String(bytes);
         System.out.println(decodeString);
