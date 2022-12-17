@@ -7,7 +7,6 @@ import com.project.rg.Calculator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.logging.Logger;
 
 import static com.project.rg.Calculator.common.Constants.Message.*;
@@ -19,8 +18,10 @@ import static java.util.logging.Level.INFO;
 public class LoginService {
 
     Logger logger = Logger.getLogger(LoginService.class.getName());
+
     @Autowired
     UserRepository userRepository;
+
     public LoginResponse getLoginResponse(String message , LoginStatus loginStatus) {
         return new LoginResponse(message, loginStatus);
     }
@@ -45,11 +46,12 @@ public class LoginService {
 
 
     public LoginResponse validateUser(User request){
-        if (userRepository.existsByUsername(request.getUserName())){
-            return invalidLogin( USER_PRESENT_BY_USERNAME);
-        }
-        if(userRepository.existsByEmail(request.getEmail())){
+
+        if(userRepository.existsUserByEmail(request.getEmail())){
             return invalidLogin( USER_PRESENT_BY_EMAIL);
+        }
+        if (userRepository.existsUserByUserName(request.getUserName())){
+            return invalidLogin( USER_PRESENT_BY_USERNAME);
         }
 
         return null;
@@ -57,8 +59,10 @@ public class LoginService {
 
 
     public LoginResponse registerUser(User request) {
-        userRepository.addUser(request);
+        userRepository.save(request);
         return validLogin(USER_SUCCESSFULLY_REGEISTERED);
     }
+
+
 
 }

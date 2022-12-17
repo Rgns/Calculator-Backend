@@ -1,8 +1,11 @@
 package com.project.rg.Calculator.model;
 
 
+import org.springframework.data.annotation.Id;
+
 public class User {
 
+    @Id
     private String userName;
     private String pwd;
     private String email;
@@ -30,4 +33,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }

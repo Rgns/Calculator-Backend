@@ -2,6 +2,16 @@ package com.project.rg.Calculator.common;
 
 public interface Constants {
 
+    interface CalcConstants {
+        String SPACE = " ";
+        String EQUAL_TO = "=";
+        String MUL = "*";
+        String ADD = "+";
+        String SUB = "-";
+        String DIV = "/";
+
+    }
+
     interface HttpHeaderValues {
         long MAX_AGE = 86400;
     }

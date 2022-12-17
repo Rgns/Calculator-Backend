@@ -6,8 +6,6 @@ import com.project.rg.Calculator.model.CalcRequest;
 import com.project.rg.Calculator.model.CalculatedResult;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class CalculatorService {
 

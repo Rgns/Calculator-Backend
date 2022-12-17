@@ -17,8 +17,7 @@ import static com.project.rg.Calculator.common.ApiPath.REGISTER_USER;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @Component
-public class AuthFilter implements Filter
-{
+public class AuthFilter implements Filter {
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthFilter.class);
     
     @Autowired
